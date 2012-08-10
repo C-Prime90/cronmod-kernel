@@ -72,21 +72,23 @@ struct clkctl_acpu_speed {
 
 /* core sources */
 #define SRC_RAW		0 /* clock from SPSS_CLK_CNTL */
-#define SRC_SCPLL	1 /* output of scpll 128-1113 MHZ */
-#define SRC_AXI		2 /* 128 MHz */
+#define SRC_SCPLL	1 /* output of scpll 19-1220 MHZ */
+#define SRC_AXI		2 /* 176 MHz */
 #define SRC_PLL1	3 /* 768 MHz */
 
 struct clkctl_acpu_speed acpu_freq_tbl[] = {
-  {  19200, CCTL(CLK_TCXO, 1),		SRC_RAW, 0, 0, 1050, 14000, 1 },
-  { 128000, CCTL(CLK_TCXO, 1),		SRC_AXI, 0, 0, 1050, 14000 , 0 },
+  {  19200, CCTL(CLK_TCXO, 1),		SRC_RAW, 0, 0, 1050, 14000 , 1 },
+  { 128000, CCTL(CLK_TCXO, 1),		SRC_RAW, 0, 0, 1050, 14000 , 1 },
+  { 176000, CCTL(CLK_TCXO, 1),		SRC_AXI, 0, 0, 1050, 14000 , 0 },
   { 245000, CCTL(CLK_MODEM_PLL, 1),	SRC_RAW, 0, 0, 1050, 29000 , 0 },
-  //{ 256000, CCTL(CLK_GLOBAL_PLL, 3),	SRC_RAW, 0, 0, 1050, 29000 , 1 },
+  /* Work arround for acpu resume hung, GPLL is turn off by arm9 */
+  /*{ 256000, CCTL(CLK_GLOBAL_PLL, 3),	SRC_RAW, 0, 0, 1050, 29000 , 1 },*/
   { 384000, CCTL(CLK_TCXO, 1),		SRC_SCPLL, 0x0A, 0, 1050, 58000 , 0 },
   { 422400, CCTL(CLK_TCXO, 1),		SRC_SCPLL, 0x0B, 0, 1050, 117000 , 0 },
   { 460800, CCTL(CLK_TCXO, 1),		SRC_SCPLL, 0x0C, 0, 1050, 117000 , 1 },
   { 499200, CCTL(CLK_TCXO, 1),		SRC_SCPLL, 0x0D, 0, 1075, 117000 , 0 },
   { 537600, CCTL(CLK_TCXO, 1),		SRC_SCPLL, 0x0E, 0, 1100, 117000 , 1 },
-  { 576000, CCTL(CLK_TCXO, 1),		SRC_SCPLL, 0x0F, 0, 1100, 117000 , 1 },
+  { 576000, CCTL(CLK_TCXO, 1),		SRC_SCPLL, 0x0F, 0, 1100, 117000 , 0 },
   { 614400, CCTL(CLK_TCXO, 1),		SRC_SCPLL, 0x10, 0, 1125, 117000 , 0 },
   { 652800, CCTL(CLK_TCXO, 1),		SRC_SCPLL, 0x11, 0, 1150, 117000 , 1 },
   { 691200, CCTL(CLK_TCXO, 1),		SRC_SCPLL, 0x12, 0, 1175, 117000 , 1 },
@@ -98,12 +100,14 @@ struct clkctl_acpu_speed acpu_freq_tbl[] = {
   { 921600, CCTL(CLK_TCXO, 1),		SRC_SCPLL, 0x18, 0, 1275, 128000 , 0 },
   { 960000, CCTL(CLK_TCXO, 1),		SRC_SCPLL, 0x19, 0, 1275, 128000 , 1 },
   { 998400, CCTL(CLK_TCXO, 1),		SRC_SCPLL, 0x1A, 0, 1275, 128000 , 0 },
-  { 1036800, CCTL(CLK_TCXO, 1), 		SRC_SCPLL, 0x1B, 0, 1275, 128000 , 0 },
-  { 1075200, CCTL(CLK_TCXO, 1), 		SRC_SCPLL, 0x1C, 0, 1275, 128000 , 0 },
-  { 1113600, CCTL(CLK_TCXO, 1), 		SRC_SCPLL, 0x1D, 0, 1275, 128000 , 0 },
-  { 1152000, CCTL(CLK_TCXO, 1), 		SRC_SCPLL, 0x1E, 0, 1300, 128000 , 0 }, 
-  { 1190400, CCTL(CLK_TCXO, 1), 		SRC_SCPLL, 0x1F, 0, 1300, 128000 , 0 }, 
-	{ 0 },
+  { 1036800, CCTL(CLK_TCXO, 1), 	SRC_SCPLL, 0x1B, 0, 1275, 128000 , 0 },
+  { 1075200, CCTL(CLK_TCXO, 1), 	SRC_SCPLL, 0x1C, 0, 1275, 128000 , 0 },
+  { 1113600, CCTL(CLK_TCXO, 1), 	SRC_SCPLL, 0x1D, 0, 1275, 128000 , 0 },
+  { 1152000, CCTL(CLK_TCXO, 1), 	SRC_SCPLL, 0x1E, 0, 1300, 128000 , 0 }, 
+  { 1200000, CCTL(CLK_TCXO, 1), 	SRC_SCPLL, 0x1F, 0, 1300, 128000 , 0 },
+  { 1210000, CCTL(CLK_TCXO, 1), 	SRC_SCPLL, 0x20, 0, 1300, 128000 , 0 },
+  { 1220000, CCTL(CLK_TCXO, 1), 	SRC_SCPLL, 0x21, 0, 1300, 128000 , 0 },
+  { 0 },
 };
 
 /* select the standby clock that is used when switching scpll

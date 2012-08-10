@@ -38,12 +38,8 @@
 //#define VOLTAGE_MIN  925 /* mV */
 #define VOLTAGE_MIN  BRAVO_TPS65023_MIN_UV_MV /* mV */
 #define VOLTAGE_MAX  BRAVO_TPS65023_MAX_UV_MV
-<<<<<<< HEAD
-#define	VOLTAGE_MIN_START	900	// Minimum value to start off with
-=======
 #define	VOLTAGE_MAX_SAFE	VOLTAGE_MAX-50	// MAX voltage for safe frequencies (1300 mV)
-#define	VOLTAGE_MIN_START	1000	// Minimum value to start off with
->>>>>>> 61f7bcc... Added vdd_table_havs system file that lists the currently used voltages for the current temperature range
+#define	VOLTAGE_MIN_START	1050	// Minimum value to start off with
 #define VOLTAGE_STEP 25
 
 int __init avs_init(int (*set_vdd)(int), u32 freq_cnt, u32 freq_idx);
