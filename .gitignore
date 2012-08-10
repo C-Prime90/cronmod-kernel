@@ -29,6 +29,7 @@ modules.builtin
 *.bz2
 *.lzma
 *.lzo
+*.diff
 *.patch
 *.gcno
 kernel-*.zip
@@ -44,6 +45,7 @@ kernel-*.zip
 /System.map
 /Module.markers
 /Module.symvers
+/out
 
 #
 # git files that we don't want to ignore even it they are dot-files
