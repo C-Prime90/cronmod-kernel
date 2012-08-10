@@ -110,7 +110,7 @@ struct clkctl_acpu_speed {
 
 struct clkctl_acpu_speed acpu_vdd_tbl[] = {
   {  19200, VOLTAGE_MIN_START, VOLTAGE_MAX_SAFE, VOLTAGE_MAX, 1 },
-  { 128000, VOLTAGE_MIN_START, VOLTAGE_MAX_SAFE, VOLTAGE_MAX, 1 }
+  { 128000, VOLTAGE_MIN_START, VOLTAGE_MAX_SAFE, VOLTAGE_MAX, 1 },
   { 176000, VOLTAGE_MIN_START, VOLTAGE_MAX_SAFE, VOLTAGE_MAX, 0 },
   { 245000, VOLTAGE_MIN_START, VOLTAGE_MAX_SAFE, VOLTAGE_MAX, 0 },
   /* Work arround for acpu resume hung, GPLL is turn off by arm9 */
