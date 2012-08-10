@@ -32,6 +32,8 @@ modules.builtin
 *.diff
 *.patch
 *.gcno
+*.orig
+*.rej
 kernel-*.zip
 
 #
