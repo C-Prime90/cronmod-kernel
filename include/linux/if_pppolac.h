@@ -21,10 +21,6 @@
 #include <linux/socket.h>
 #include <linux/types.h>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 6f3a386... Fixed VPN on MIUI (and perhaps other ROMs) thanks to mondilv@xda
 struct sockaddr_pppolac {
 	sa_family_t	sa_family;	/* AF_PPPOX */
 	unsigned int	sa_protocol;	/* PX_PROTO_OLAC */

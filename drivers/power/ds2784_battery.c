@@ -328,12 +328,13 @@ static int ds2784_battery_read_status(struct ds2784_device_info *di)
 
 	ds2784_parse_data(di->raw, &di->status);
 
-	pr_info("batt: %3d%%, %d mV, %d mA (%d avg), %d.%d C, %d mAh\n",
+	pr_info("batt: %3d%%, %d mV, %d mA (%d avg), %d.%d C, %d mAh, CM=%d\n",
 		di->status.percentage,
 		di->status.voltage_uV / 1000, di->status.current_uA / 1000,
 		di->status.current_avg_uA / 1000,
 		di->status.temp_C / 10, di->status.temp_C % 10,
-		di->status.charge_uAh / 1000);
+		di->status.charge_uAh / 1000,
+		di->status.charge_mode);
 
 	return 0;
 }
@@ -797,12 +798,6 @@ static int battery_adjust_charge_state(struct ds2784_device_info *di)
 
 	if(!enable_charge)
 		charge_mode = CHARGE_OFF;
-<<<<<<< HEAD
-	if (di->status.percentage < 95)
-    		di->status.battery_full = 0;
-
-=======
->>>>>>> 390fd74... Fix battery calibration issues
 	/* shut off charger when full:
 	 * - CHGTF flag is set
 	 */

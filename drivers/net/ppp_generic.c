@@ -2880,7 +2880,6 @@ again:
 			goto again;
 		return err;
 	}
-<<<<<<< HEAD
 
 	return unit;
 }
@@ -2890,17 +2889,6 @@ static int unit_set(struct idr *p, void *ptr, int n)
 {
 	int unit;
 
-=======
-
-	return unit;
-}
-
-/* associate pointer with specified number */
-static int unit_set(struct idr *p, void *ptr, int n)
-{
-	int unit;
-
->>>>>>> 6f3a386... Fixed VPN on MIUI (and perhaps other ROMs) thanks to mondilv@xda
 	unit = __unit_alloc(p, ptr, n);
 	if (unit < 0)
 		return unit;
