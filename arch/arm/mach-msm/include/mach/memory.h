@@ -36,7 +36,7 @@
 
 #define HAS_ARCH_IO_REMAP_PFN_RANGE
 
-#define CONSISTENT_DMA_SIZE (4*SZ_1M)
+#define CONSISTENT_DMA_SIZE  (SZ_1M * 14)
 
 #ifdef CONFIG_ARCH_MSM_SCORPION
 #define arch_has_speculative_dfetch()  1
