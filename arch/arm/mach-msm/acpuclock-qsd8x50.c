@@ -78,7 +78,6 @@ struct clkctl_acpu_speed {
 
 struct clkctl_acpu_speed acpu_freq_tbl[] = {
   {  19200, CCTL(CLK_TCXO, 1),		SRC_RAW, 0, 0, 1050, 14000 , 1 },
-  { 128000, CCTL(CLK_TCXO, 1),		SRC_RAW, 0, 0, 1050, 14000 , 1 },
   { 176000, CCTL(CLK_TCXO, 1),		SRC_AXI, 0, 0, 1050, 14000 , 0 },
   { 245000, CCTL(CLK_MODEM_PLL, 1),	SRC_RAW, 0, 0, 1050, 29000 , 0 },
   /* Work arround for acpu resume hung, GPLL is turn off by arm9 */
